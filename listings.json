@@ -1,1 +1,1 @@
-[{"name": "sdl2", "version": "2.28.3-1", "description": "", "dependencies": ["std"]}]
+[{"name": "sdl2", "version": "2.28.3-1", "description": "", "dependencies": ["std"], "platform": "linux-x86_64"}]

@@ -5,7 +5,14 @@ import json
 def readPackageHeader(packageFilename, packageName):
     with(py7zr.SevenZipFile(packageFilename, mode='r') as z):
         text = z.read(targets=[packageName + "/package.json"])[packageName + "/package.json"].read()
-        return json.loads(text)
+        jsonL = json.loads(text)
+        output = dict()
+        output["name"] = jsonL["name"]
+        output["version"] = jsonL["version"]
+        output["description"] = jsonL["description"]
+        output["dependencies"] = jsonL["dependencies"]
+        output["platform"] = packageName.replace(jsonL["name"] + "-", "")
+        return output;
 
 output = []
 for filename in os.listdir():
